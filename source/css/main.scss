@@ -1,0 +1,110 @@
+@import 'normalize';
+@import 'syntax';
+
+@import 'colors';
+@import 'nav';
+@import 'footer';
+
+body {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+	color: $text_base_color;
+	text-align: justify;
+	line-height: 1.5em;
+	padding-top: 3em;
+}
+
+h1, h2, h3 {
+	color: $text_header_color;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+a {
+	text-decoration: none;
+	color: $base_color;
+}
+
+blockquote {
+	border-left: 5px solid $triad1_color;
+	padding: 1em 1.75em;
+	margin: 0 0 1.75em 0;
+}
+
+img {
+	display: block;
+	border-radius: 0.25em;
+	max-width: 100%;
+	margin: 1.5em auto;
+}
+
+//TODO Make this more generic.
+//     However, Markdown does not support adding classes to image tags.
+img[alt="Tim Peters"] {
+	width: 8em;
+	height: 8em;
+	margin-top: 1em;
+	margin-right: 1em;
+	border-radius: 0.5em;
+	float: left;
+	clear: left;
+}
+
+.banner {
+	width: 100%;
+	height: 18.75em; /* 300px */
+	margin-bottom: -2.5em;
+	background-size: cover;
+	background-color: $text_base_color;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.container {
+	max-width: 38em;
+	margin: 4.5em auto 0 auto;
+}
+
+.posts {
+	padding: 0;
+}
+
+.posts li {
+	list-style-type: none;
+	font-size: 1.125em;
+	line-height: 1.6em;
+}
+
+.posts li span {
+	float: right;
+	text-transform: uppercase;
+	color: $text_light_color;
+	font-size: 0.75em;
+}
+
+.post-header .meta {
+	color: $text_light_color;
+	font-size: 0.9em; /* approx. 15px */
+	font-style: italic;
+	padding-top: 0.625em;
+	vertical-align: bottom;
+	margin: 0;
+}
+
+.highlight {
+	border-left: 5px solid $triad2_color;
+	padding: 1em 1.75em;
+	margin: 0 0 1.75em 0;
+}
+
+.highlight pre {
+	margin: 0;
+}

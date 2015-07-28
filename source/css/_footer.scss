@@ -1,0 +1,35 @@
+.footer {
+	padding: 1.5em 0;
+	margin-top: 3em;
+	border-top: 1px solid $text_lighter_color;
+	text-align: center;
+	clear: both;
+}
+
+.footer a {
+	display: inline-block;
+	font-size: 2em;
+	vertical-align: top;
+	text-align: center;
+	color: $text_base_color;
+	transition: color 0.25s ease-in;
+	width: 3em;
+}
+
+.footer a:hover {
+	color: $base_color;
+}
+
+.footer a div {
+	width: 7.5em;
+	margin: 0.5em auto;
+	font-size: 0.3em; /* 12px */
+	line-height: 1.5em;
+}
+
+// Stack footer icons op top of each other if we can't fit all four in a row.
+@media (max-width: 30em) {
+	.footer a {
+		width: 100%;
+	}
+}

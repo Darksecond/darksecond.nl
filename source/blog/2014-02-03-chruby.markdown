@@ -1,0 +1,43 @@
+---
+title:  Chruby
+date:   2014-02-03
+---
+
+After i recently obtained a new main working computer, namely a shiny new macbook pro retina 13". I decided it was about time to clean up my workflow as well. Today i want to talk about an alternative to RVM by postmodern, named chruby.
+
+[Chruby](https://github.com/postmodern/chruby) is a fully working alternative to [RVM](http://rvm.io) in about 90 lines of code. It requires a seperate program for building ruby, namely ruby-build or ruby-install. I decided to use chruby and ruby-install. Both are developed by postmodern.
+
+Installing chruby and ruby-install is easy and straightforward as both are available from [homebrew](http://brew.sh). Use commands like this to install chruby, ruby-install and the latest stable MRI.
+
+```bash
+brew install ruby-install
+brew install chruby
+
+ruby-install ruby
+```
+
+Now that all required files are installed, only the shell needs to be configured to use chruby. Since i use ZSH this code goes in `~/.zshenv`. Use zshenv as it's sourced on both login and non-login shells.
+
+```bash
+if [[ -e /usr/local/share/chruby ]]; then
+
+	# Load chruby
+	source /usr/local/share/chruby/chruby.sh
+
+	# Automatically switch ruby version
+	source /usr/local/share/chruby/auto.sh
+
+	# Set a default ruby if a .ruby-version file exists in the home dir
+	if [[ -f ~/.ruby-version ]]; then
+		chruby $(cat ~/.ruby-version)
+	fi
+fi
+```
+
+Create a file named `.ruby-version` in your home directory and put the ruby version to use in it. This will make chruby automatically switch to that ruby version.
+
+```bash
+ruby-2.1.0
+```
+
+Use `chruby` to list all installed rubies and switch between them. `ruby-install` can be used to install new rubies. Chruby will automatically switch to the ruby version specified in .ruby-version in the current directory. If you `cd` into another directory which contains a different `.ruby-version` file, the active ruby will switch automatically.

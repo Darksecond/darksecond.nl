@@ -1,0 +1,9 @@
+$text_base_color: #444;
+$text_header_color: darken($text_base_color, 10%);
+$text_light_color: lighten($text_base_color, 25%);
+$text_lighter_color: lighten($text_base_color, 60%);
+
+$base_color: #307EA9;
+$complement_color: adjust-hue($base_color, 180);
+$triad1_color: adjust-hue($base_color, 120);
+$triad2_color: adjust-hue($base_color, -120);
