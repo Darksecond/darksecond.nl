@@ -90,6 +90,14 @@ set :js_dir, 'js'
 
 set :images_dir, 'images'
 
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket = 'blog.darksecond.nl'
+  s3_sync.region = 'eu-west-1'
+end
+
+default_caching_policy max_age:(60 * 60 * 24 * 365)
+caching_policy 'text/html', max_age: 60, must_revalidate: true
+
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
@@ -100,6 +108,8 @@ configure :build do
 
   # Enable cache buster
   activate :asset_hash
+
+  activate :gzip
 
   # Use relative URLs
   # activate :relative_assets

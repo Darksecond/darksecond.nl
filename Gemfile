@@ -7,3 +7,5 @@ gem "middleman-syntax"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
+
+gem 'middleman-s3_sync'
